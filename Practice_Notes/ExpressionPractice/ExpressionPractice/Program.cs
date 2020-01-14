@@ -13,8 +13,12 @@ namespace ExpressionPractice
             int x = 5;
             int y = 10;
             int z = 20;
+            int result = Add(x, y);
         }
-        int Add()
-       
+        static int Add(int x, int y)
+        {
+            return x + y;
+        }
+
     }
 }
