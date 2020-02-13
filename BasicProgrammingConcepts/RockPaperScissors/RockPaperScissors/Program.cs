@@ -17,20 +17,112 @@ namespace RockPaperScissors
             int Ties = 0;
             int userWins = 0;
             int computerWins = 0;
+            int userInput = 0;
 
             while(true)
             {
-                Console.WriteLine("How many times do you want to play?  ");
-                string userInput = Console.ReadLine();
+                Console.WriteLine("How many rounds do you want to play? (choose between 1-10)  ");
+                string userChoice = Console.ReadLine();
 
-                if( int.TryParse(userInput, out Rounds))
+                if( int.TryParse(userChoice, out Rounds))
                 {
                     if(Rounds < 0 || Rounds > 10)
                     {
                         Console.WriteLine("That number is out of bounds ");
+                        break;
+                        //not sure how to exit program here.
+                    }
+
+
+                    while (Rounds > 0)
+                    {
+                        Console.WriteLine("Choose between 1=Rock, 2=Paper, or 3=Scissors  ");
+                        string Input = Console.ReadLine();
+                        if (int.TryParse(Input, out userInput))
+                        {
+                            ;
+                        }
+
+                        else
+                        {
+                            continue;
+                        }
+                        Random rng = new Random();
+                        int Random = rng.Next(1, 4);
+
+                        if (userInput == Random)
+                        {
+                            Console.WriteLine("The round is a tie!  ");
+                            Ties++;
+                            Rounds--;
+                            continue;
+                        }
+                        else if(userInput==1 && Random == 2)
+                        {
+                            Console.WriteLine("Computer Wins!  ");
+                            computerWins++;
+                            Rounds--;
+                            continue;
+                        }
+                        else if (userInput == 1 && Random == 3)
+                        {
+                            Console.WriteLine("You Win!  ");
+                            userWins++;
+                            Rounds--;
+                            continue;
+                        }
+                        else if (userInput == 2 && Random == 3)
+                        {
+                            Console.WriteLine("Computer Wins!  ");
+                            computerWins++;
+                            Rounds--;
+                            continue;
+                        }
+                        else if (userInput == 2 && Random == 1)
+                        {
+                            Console.WriteLine("You Win!  ");
+                            userWins++;
+                            Rounds--;
+                            continue;
+                        }
+                        else if (userInput == 3 && Random == 1)
+                        {
+                            Console.WriteLine("Computer Wins!  ");
+                            computerWins++;
+                            Rounds--;
+                            continue;
+                        }
+                        else if (userInput == 3 && Random == 2)
+                        {
+                            Console.WriteLine("You Win!  ");
+                            userWins++;
+                            Rounds--;
+                            continue;
+                        }
+                    }
+
+                    Console.WriteLine("Ties: " + Ties + " Your Wins: " + userWins + " Computer Wins: " + computerWins );
+                    if (userWins > computerWins)
+                    {
+                        Console.WriteLine("You are the winner!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Computer Wins! ");
                     }
                 }
 
+                Console.WriteLine("Would you like to play again? y/n  ");
+                string playAgain = Console.ReadLine();
+                if (playAgain == "y")
+                {
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Thanks for playing! ");
+                    break;
+                }
 
             }
 
