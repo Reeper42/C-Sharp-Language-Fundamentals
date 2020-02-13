@@ -124,7 +124,9 @@ namespace RockPaperScissors
                     break;
                 }
 
-            }
+            } //This is the bare minimum of what the assginments wants me to do.
+            // There is no result for if we tie. The assginment does not specify if the number of wins are suppose to reset. It also does not ask me to display what the computer chose.
+            // Code is still very messy. Wonder if would be better to use a switch statement then present cases of the out come.
 
 
         }
