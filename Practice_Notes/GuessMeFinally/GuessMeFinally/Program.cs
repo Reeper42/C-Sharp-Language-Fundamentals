@@ -49,6 +49,11 @@ namespace GuessMeFinally
                         //continue; REMEMBER don't need continue if it is at the end of the loop.
                     }
                 }
+
+                else
+                {
+                    Console.WriteLine("Enter a valid number");
+                }
             }
             if(timesGuessed < 1)
             {

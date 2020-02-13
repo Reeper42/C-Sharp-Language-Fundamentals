@@ -18,7 +18,7 @@ namespace StillPositive
             {
                 if (numbers[i] > 0)
                 {
-                    Console.Write($"{numbers[i]} ");
+                    Console.Write($"{numbers[i]} "); //I would like to discuss other approaches of completeing this task.
                     continue;
                 }
                 else
