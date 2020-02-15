@@ -38,13 +38,9 @@ namespace RockPaperScissors
                     {
                         Console.WriteLine("Choose between 1=Rock, 2=Paper, or 3=Scissors  ");
                         string Input = Console.ReadLine();
-                        if (int.TryParse(Input, out userInput))
+                        if (!int.TryParse(Input, out userInput))
                         {
-                            ;
-                        }
-
-                        else
-                        {
+                            Console.WriteLine("Please enter a valid number. ");
                             continue;
                         }
                         Random rng = new Random();
@@ -114,7 +110,7 @@ namespace RockPaperScissors
 
                 Console.WriteLine("Would you like to play again? y/n  ");
                 string playAgain = Console.ReadLine();
-                if (playAgain == "y")
+                if (playAgain.ToUpper() == "Y")
                 {
                     continue;
                 }
