@@ -49,6 +49,8 @@ namespace SummativeSums
                 sum3 += array3[i];
             }
             return sum3;
-        }
+        }//Instructions: Write a static method that takes in an array of ints, adds them together, and returns the result.
+       //Call your new method inside a main method and print out the result for the following three example arrays:
+       //Question: Were all three arrays suppose to be in one method? If yes, I am unsure how to go about completeting that.
     }
 }
