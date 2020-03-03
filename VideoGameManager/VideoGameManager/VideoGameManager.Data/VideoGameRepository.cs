@@ -10,7 +10,7 @@ namespace VideoGameManager.Data
     public class VideoGameRepository
     {
         List<VideoGame> games = new List<VideoGame>();
-
+        
 
         public VideoGame Create(VideoGame videoGame)
         {
@@ -23,8 +23,13 @@ namespace VideoGameManager.Data
             return games;
         }
 
-        public VideoGame ReadById()
+        public VideoGame ReadById(int id)
         {
+            for (int i = 0; i < games.Count; i++)
+            {
+                if (games[i].GameId == id)
+                    return games[i];
+            }
             return null;
         }
 
@@ -35,6 +40,7 @@ namespace VideoGameManager.Data
 
         public void Delete(int id)
         {
+            games.RemoveAll(x => x.GameId == id);
             return;
         }
     }

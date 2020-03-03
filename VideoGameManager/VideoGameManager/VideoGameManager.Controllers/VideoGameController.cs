@@ -35,15 +35,17 @@ namespace VideoGameManager.Controllers
                         videoGame.DisplayGameList(games);
                         break;
                     case 3:
-                        var gameId = new VideoGameController();
-                        gameId.SearchVideoGame();
+                        int searchGame = videoGame.SearchVideoGame();
+                        VideoGame foundGame = videoGameData.ReadById(searchGame);
+                        videoGame.DisplayVideoGame(foundGame);                  
                         break;
                     //case 4:
                     //    videogame editinfo = videogame.editvideogameinfo();
                     //    break;
-                    //case 5:
-                    //    videogame removegame = videogame.confirmremovevideogame();
-                    //    break;
+                    case 5:
+                        int removeGame = videoGame.ConfirmRemoveVideoGame();
+                        videoGameData.Delete(removeGame);                      
+                        break;
 
                 }
             }
@@ -62,20 +64,7 @@ namespace VideoGameManager.Controllers
 
         private void SearchVideoGame()
         {
-            while (true)
-            {
-                Console.WriteLine("Enter the ID of the game you would like to find. ");
-                string userInput = Console.ReadLine();
-                int gameId;
-                if(int.TryParse(userInput, out gameId))
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("That is not a valid ID");
-                }
-            }
+
 
             return;
         }
@@ -86,7 +75,7 @@ namespace VideoGameManager.Controllers
         }
 
         private void RemoveVideoGame()
-        {
+        {                        
             return;
         }
     }

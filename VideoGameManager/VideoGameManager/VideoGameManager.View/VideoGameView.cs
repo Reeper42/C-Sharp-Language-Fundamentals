@@ -12,20 +12,23 @@ namespace VideoGameManager.View
     {
         public int GetMenuChoice()
         {
-            Console.WriteLine("What would you like to do? ");
-            Console.WriteLine("0:Exit  1:Create  2:List All  3:Find By Id  4:Edit 5:Remove ");
-            string userInput = Console.ReadLine();
-            int userChoice;
+            while (true)
+            {
+                Console.WriteLine("What would you like to do? ");
+                Console.WriteLine("0:Exit  1:Create  2:List All  3:Find By Id  4:Edit 5:Remove ");
+                string userInput = Console.ReadLine();
+                int userChoice;
+                if (int.TryParse(userInput, out userChoice))
+                {
+                    return userChoice;
+                }
+                else
+                {
+                    Console.WriteLine("Please choose a valid option. ");
+                }
+                
+            }
 
-            if (int.TryParse(userInput, out userChoice))
-            {
-                ;
-            }
-            else
-            {
-                Console.WriteLine("Please choose a valid option. ");
-            }
-            return userChoice;
         }
 
         public VideoGame GetNewVideoGameInfo()
@@ -38,48 +41,61 @@ namespace VideoGameManager.View
 
             VideoGame game = new VideoGame();
 
-            Console.Write("Game id: ");
-            userInput = Console.ReadLine();
-            if (int.TryParse(userInput, out id))
+            while (true)
             {
-                ;
+                Console.Write("Game id: ");
+                userInput = Console.ReadLine();
+                if (int.TryParse(userInput, out id))
+                {
+                    game.GameId = id; 
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("That is not a valid id.");
+                }
+                                            
             }
-            else
-            {
-                Console.WriteLine("That is not a valid id.");
-            }
-            game.GameId = id;
+
 
             Console.Write("Game Title: ");
             title = Console.ReadLine();
             game.GameTitle = title;
 
-            Console.Write("Game Price: ");
-            userInput = Console.ReadLine();
-            if (decimal.TryParse(userInput, out price))
+            while (true)
             {
-                ;
+                Console.Write("Game Price: $");
+                userInput = Console.ReadLine();
+                if (decimal.TryParse(userInput, out price))
+                {
+                    game.GamePrice = price;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("That is not a valid price! ");
+                }
+                                
             }
-            else
-            {
-                Console.WriteLine("That is not a valid price! ");
-            }
-            game.GamePrice = price;
 
-            Console.Write("Game's Release Date: ");
-            userInput = Console.ReadLine();
-            if(int.TryParse(userInput, out releaseDate))
+            while (true)
             {
-                ;
+                Console.Write("Game's Release Date: ");
+                userInput = Console.ReadLine();
+                if (int.TryParse(userInput, out releaseDate))
+                {
+                    game.GameReleaseDate = releaseDate;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("That is not a valid date! ");
+                }
+                                
             }
-            else
-            {
-                Console.WriteLine("That is not a valid date! ");
-            }
-            game.GameReleaseDate = releaseDate;
-                
             return game;
         }
+
         public void DisplayGameList(List<VideoGame> gameList)
         {
             for (int i = 0; i < gameList.Count; i++)
@@ -90,7 +106,10 @@ namespace VideoGameManager.View
 
         public void DisplayVideoGame(VideoGame videoGame)
         {
-            
+            Console.WriteLine("Game:  "+ videoGame.GameTitle);
+            Console.WriteLine("ID: "+ videoGame.GameId);
+            Console.WriteLine("Price: $"+ videoGame.GamePrice);
+            Console.WriteLine("Year: "+ videoGame.GameReleaseDate);
             return;
         }
 
@@ -101,12 +120,40 @@ namespace VideoGameManager.View
 
         public int SearchVideoGame()
         {
-            return 0;
+            int gameId;
+            while (true)
+            {
+                Console.WriteLine("Enter the ID of the game you would like to find. ");
+                string userInput = Console.ReadLine();
+                
+                if (int.TryParse(userInput, out gameId))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("That is not a valid ID");
+                }
+            }
+            return gameId;
         }
 
-        public bool ConfirmRemoveVideoGame(VideoGame videoGame)
+        public int ConfirmRemoveVideoGame()
         {
-            return false;
+            while (true)
+            {
+                Console.WriteLine("Enter the Id of the game you would like to delete.  ");
+                string userInput = Console.ReadLine();
+                int id;
+                if (int.TryParse(userInput, out id))
+                {
+                    return id;
+                }
+                else
+                {
+                    Console.WriteLine("That is not a valid ID. ");                   
+                }
+            }            
         }
 
     }
