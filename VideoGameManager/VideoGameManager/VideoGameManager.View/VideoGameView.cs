@@ -106,10 +106,19 @@ namespace VideoGameManager.View
 
         public void DisplayVideoGame(VideoGame videoGame)
         {
-            Console.WriteLine("Game:  "+ videoGame.GameTitle);
-            Console.WriteLine("ID: "+ videoGame.GameId);
-            Console.WriteLine("Price: $"+ videoGame.GamePrice);
-            Console.WriteLine("Year: "+ videoGame.GameReleaseDate);
+            string title = videoGame.GameTitle;
+            int gameId = videoGame.GameId;
+            decimal price = videoGame.GamePrice;
+            int year = videoGame.GameReleaseDate;
+            string formatted = $"Game Title: {title}\n Game ID: {gameId}\n Price: {price:c}\n Release Year: {year}";
+            //string format = "{0,-10} | {0,10} | {0,10} | {0,10}";
+            //Console.WriteLine("Title | Game ID | Price | Release Year");
+            Console.WriteLine("=============================================");
+            //Console.WriteLine(format, $"{videoGame.GameTitle}", $"{videoGame.GameId}", $"{videoGame.GamePrice}", $"{videoGame.GameReleaseDate}");
+            //Console.WriteLine(format, $"{title}" );
+            //Console.WriteLine(format, formatted);
+            Console.WriteLine(formatted);
+            //Console.WriteLine(formatted);
             return;
         }
 
