@@ -96,6 +96,54 @@ namespace VideoGameManager.View
             return game;
         }
 
+        public VideoGame GetOldVideoGameInfo(int id)
+        {
+            string userInput;
+            string title;
+            decimal price;
+            int releaseDate;
+
+            VideoGame game = new VideoGame();
+            game.GameId = id;
+
+            Console.Write("Game Title: ");
+            title = Console.ReadLine();
+            game.GameTitle = title;
+
+            while (true)
+            {
+                Console.Write("Game Price: $");
+                userInput = Console.ReadLine();
+                if (decimal.TryParse(userInput, out price))
+                {
+                    game.GamePrice = price;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("That is not a valid price! ");
+                }
+
+            }
+
+            while (true)
+            {
+                Console.Write("Game's Release Date: ");
+                userInput = Console.ReadLine();
+                if (int.TryParse(userInput, out releaseDate))
+                {
+                    game.GameReleaseDate = releaseDate;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("That is not a valid date! ");
+                }
+
+            }
+            return game;
+        }
+
         public void DisplayGameList(List<VideoGame> gameList)
         {
             for (int i = 0; i < gameList.Count; i++)
@@ -147,11 +195,11 @@ namespace VideoGameManager.View
             return gameId;
         }
 
-        public int ConfirmRemoveVideoGame()
+        public int GetGameId()
         {
             while (true)
             {
-                Console.WriteLine("Enter the Id of the game you would like to delete.  ");
+                Console.WriteLine("Enter the Id of the game you would like to edit/delete.  ");
                 string userInput = Console.ReadLine();
                 int id;
                 if (int.TryParse(userInput, out id))

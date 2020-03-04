@@ -11,7 +11,7 @@ namespace VideoGameManager
     {
         static void Main(string[] args)
         {
-            VideoGameController menu = new VideoGameController();
+            var menu = new VideoGameController();
             menu.Run();
         }
     }

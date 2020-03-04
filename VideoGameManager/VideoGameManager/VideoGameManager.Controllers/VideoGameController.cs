@@ -39,11 +39,14 @@ namespace VideoGameManager.Controllers
                         VideoGame foundGame = videoGameData.ReadById(searchGame);
                         videoGame.DisplayVideoGame(foundGame);                  
                         break;
-                    //case 4:
-                    //    videogame editinfo = videogame.editvideogameinfo();
-                    //    break;
+                    case 4:
+                        int editGame = videoGame.GetGameId();
+                        VideoGame newGameInfo = videoGame.GetOldVideoGameInfo(editGame);
+                        videoGameData.Delete(editGame);
+                        videoGameData.Create(newGameInfo);
+                        break;
                     case 5:
-                        int removeGame = videoGame.ConfirmRemoveVideoGame();
+                        int removeGame = videoGame.GetGameId();
                         videoGameData.Delete(removeGame);                      
                         break;
 
