@@ -84,12 +84,12 @@ namespace VideoGameManager.View
                 userInput = Console.ReadLine();
                 if (int.TryParse(userInput, out releaseDate))
                 {
-                    game.GameReleaseDate = releaseDate;
+                    game.GameReleaseYear = releaseDate;
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("That is not a valid date! ");
+                    Console.WriteLine("That is not a valid year! ");
                 }
                                 
             }
@@ -101,7 +101,7 @@ namespace VideoGameManager.View
             string userInput;
             string title;
             decimal price;
-            int releaseDate;
+            int releaseYear;
 
             VideoGame game = new VideoGame();
             game.GameId = id;
@@ -130,14 +130,14 @@ namespace VideoGameManager.View
             {
                 Console.Write("Game's Release Date: ");
                 userInput = Console.ReadLine();
-                if (int.TryParse(userInput, out releaseDate))
+                if (int.TryParse(userInput, out releaseYear))
                 {
-                    game.GameReleaseDate = releaseDate;
+                    game.GameReleaseYear = releaseYear;
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("That is not a valid date! ");
+                    Console.WriteLine("That is not a valid year! ");
                 }
 
             }
@@ -157,7 +157,7 @@ namespace VideoGameManager.View
             string title = videoGame.GameTitle;
             int gameId = videoGame.GameId;
             decimal price = videoGame.GamePrice;
-            int year = videoGame.GameReleaseDate;
+            int year = videoGame.GameReleaseYear;
             string formatted = $"Game Title: {title}\n Game ID: {gameId}\n Price: {price:c}\n Release Year: {year}";
             //string format = "{0,-10} | {0,10} | {0,10} | {0,10}";
             //Console.WriteLine("Title | Game ID | Price | Release Year");

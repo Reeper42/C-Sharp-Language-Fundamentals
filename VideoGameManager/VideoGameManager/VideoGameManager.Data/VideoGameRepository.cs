@@ -18,12 +18,12 @@ namespace VideoGameManager.Data
             return videoGame;
         }
 
-        public List<VideoGame> ReadAll()
+        public List<VideoGame> ListAll()
         {
             return games;
         }
 
-        public VideoGame ReadById(int id)
+        public VideoGame ListById(int id)
         {
             for (int i = 0; i < games.Count; i++)
             {

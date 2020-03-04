@@ -13,41 +13,41 @@ namespace VideoGameManager.Controllers
     {
         public void Run()
         {
-            var videoGameData = new VideoGameRepository(); 
-            var videoGame = new VideoGameView();
+            var videoGameLibrary = new VideoGameRepository(); 
+            var mainMenu = new VideoGameView();
 
             while (true)
             { 
     
-                int userChoice = videoGame.GetMenuChoice();
-                Console.WriteLine("You chose "+ userChoice);
+                int userChoice = mainMenu.GetMenuChoice();
+                Console.WriteLine("You chose option: "+ userChoice);
 
                 switch (userChoice)
                 {
                     case 0:
                         return;
                     case 1:
-                        VideoGame gameInfo = videoGame.GetNewVideoGameInfo();
-                        videoGameData.Create(gameInfo);                                          
+                        VideoGame gameInfo = mainMenu.GetNewVideoGameInfo();
+                        videoGameLibrary.Create(gameInfo);                                          
                         break;
                     case 2:
-                        List<VideoGame> games = videoGameData.ReadAll();
-                        videoGame.DisplayGameList(games);
+                        List<VideoGame> games = videoGameLibrary.ListAll();
+                        mainMenu.DisplayGameList(games);
                         break;
                     case 3:
-                        int searchGame = videoGame.SearchVideoGame();
-                        VideoGame foundGame = videoGameData.ReadById(searchGame);
-                        videoGame.DisplayVideoGame(foundGame);                  
+                        int searchGame = mainMenu.SearchVideoGame();
+                        VideoGame foundGame = videoGameLibrary.ListById(searchGame);
+                        mainMenu.DisplayVideoGame(foundGame);                  
                         break;
                     case 4:
-                        int editGame = videoGame.GetGameId();
-                        VideoGame newGameInfo = videoGame.GetOldVideoGameInfo(editGame);
-                        videoGameData.Delete(editGame);
-                        videoGameData.Create(newGameInfo);
+                        int editGame = mainMenu.GetGameId();
+                        VideoGame newGameInfo = mainMenu.GetOldVideoGameInfo(editGame);
+                        videoGameLibrary.Delete(editGame);
+                        videoGameLibrary.Create(newGameInfo);
                         break;
                     case 5:
-                        int removeGame = videoGame.GetGameId();
-                        videoGameData.Delete(removeGame);                      
+                        int removeGame = mainMenu.GetGameId();
+                        videoGameLibrary.Delete(removeGame);                      
                         break;
 
                 }

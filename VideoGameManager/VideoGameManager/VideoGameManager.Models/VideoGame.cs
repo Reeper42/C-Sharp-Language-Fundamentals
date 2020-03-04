@@ -10,9 +10,8 @@ namespace VideoGameManager.Models
     {
         public int GameId { get; set; }  //should all of these properties be auto initialized? Should some have more logic? 
         public string GameTitle { get; set; }
-        public decimal GamePrice { get; set; }
-        public List<PlatformID> GamePlatform { get; set; }//this is new to me, I'm unsure of how to go about this
-        public int GameReleaseDate { get; set; }
+        public decimal GamePrice { get; set; }       
+        public int GameReleaseYear { get; set; }
         public List<VideoGame> GameList;
 
         public VideoGame()
