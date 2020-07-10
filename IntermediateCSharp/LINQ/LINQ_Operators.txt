@@ -31,7 +31,7 @@ LastOrDefault		Returns the last element of a sequence or a default value if no e
 Single				Returns the single element of a sequence
 SingleOrDefault		Returns the single element of a sequence or a default value if no element is found
 
-********************* Equality ********************* 
+********************* Equality ********************* w
 SequenceEqual		Compares two sequences to see if they are equivalent
 
 ********************* Data Generation ********************* 
