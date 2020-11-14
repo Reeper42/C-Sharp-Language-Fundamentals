@@ -12,7 +12,7 @@ namespace LINQ
             
             //PrintAllProducts();
             //PrintAllCustomers();
-            Exercise31();
+            //Exercise25();
 
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -26,7 +26,7 @@ namespace LINQ
         static void PrintAllProducts()
         {
             List<Product> products = DataLoader.LoadProducts();
-            PrintProductInformation(products);
+            PrintProductInformation(products.OrderBy(c => c.Category).ThenBy(u => u.UnitsInStock));
         }
 
         /// <summary>
@@ -508,7 +508,7 @@ namespace LINQ
         {
             var categories = DataLoader.LoadProducts();
 
-            var categoriesOutofStock = categories.Where(c => c.UnitsInStock == 0);
+            var categoriesOutofStock = categories.Where(c => c.UnitsInStock < 1);
 
             foreach (var c in categoriesOutofStock)
             {
